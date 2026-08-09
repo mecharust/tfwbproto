@@ -1,0 +1,14 @@
+{
+	"Start":{
+		
+			"Character" :"Optimus",
+			"Text" : "Hello World!",
+			"Next" : "A"
+			
+		},
+	"A":{
+			"Character" :"Optimus",
+			"Text" : "Goodbye World!",
+			"End": "End"
+	}
+}

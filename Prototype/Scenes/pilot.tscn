@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkrbt3v1lo5"]
+
+[ext_resource type="Script" uid="uid://dpc0y6dyrjbau" path="res://Scripts/Pilot.cs" id="1_dokiu"]
+[ext_resource type="Texture2D" uid="uid://dogi6pko8jngn" path="res://Images/Background/bg fireforest.png" id="2_rir24"]
+[ext_resource type="PackedScene" uid="uid://b0yuy2fopgq53" path="res://Scenes/TestSpriteOptimus.tscn" id="3_yjxm1"]
+[ext_resource type="Script" uid="uid://yp5syem7dsei" path="res://Scripts/TestSpriteOptimus.cs" id="4_arfdm"]
+[ext_resource type="PackedScene" uid="uid://do1b66uwfv7hl" path="res://Scenes/dialogue_manager.tscn" id="5_wxu2s"]
+
+[node name="Pilot" type="Node2D"]
+script = ExtResource("1_dokiu")
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Forest" type="TextureRect" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rir24")
+expand_mode = 1
+
+[node name="Character" type="CanvasLayer" parent="."]
+
+[node name="TestSpriteOptimus" parent="Character" instance=ExtResource("3_yjxm1")]
+position = Vector2(-1534, 792)
+script = ExtResource("4_arfdm")
+
+[node name="DialogueManager" parent="Character" node_paths=PackedStringArray("NP", "Txt") instance=ExtResource("5_wxu2s")]
+NP = NodePath("DialogueUI/Namebox/Label2/NamePlate")
+Txt = NodePath("DialogueUI/DialogueBox/Label/Text")
+txtfile = "res://Writing/Test/test2.json"
+
+[editable path="Character/DialogueManager"]

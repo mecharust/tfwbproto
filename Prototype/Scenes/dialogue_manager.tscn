@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://do1b66uwfv7hl"]
+
+[ext_resource type="Script" uid="uid://1wtbx1fgbcij" path="res://Scripts/DialogueManager.cs" id="1_s3xy2"]
+[ext_resource type="PackedScene" uid="uid://bbwp5mx203dfy" path="res://Scenes/dialogue_ui.tscn" id="2_vdh8g"]
+[ext_resource type="PackedScene" uid="uid://bek1j1gd4mulp" path="res://Scenes/prose_ui.tscn" id="3_nghhh"]
+
+[node name="DialogueManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 1153.0
+offset_bottom = 654.0
+script = ExtResource("1_s3xy2")
+txtfile = "res://Writing/Test/Test.json"
+
+[node name="DialogueUI" parent="." instance=ExtResource("2_vdh8g")]
+layout_mode = 1
+
+[node name="ProseUI" parent="." instance=ExtResource("3_nghhh")]
+visibility_layer = 0
+layout_mode = 1

@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwi56lndxpee4"]
+
+[ext_resource type="Script" uid="uid://dot6ctx0b81ef" path="res://Scripts/Test.cs" id="1_e6ruj"]
+[ext_resource type="Texture2D" uid="uid://dogi6pko8jngn" path="res://Images/Background/bg fireforest.png" id="1_fgwas"]
+[ext_resource type="PackedScene" uid="uid://b0yuy2fopgq53" path="res://Scenes/TestSpriteOptimus.tscn" id="3_i3aeo"]
+[ext_resource type="Script" uid="uid://yp5syem7dsei" path="res://Scripts/TestSpriteOptimus.cs" id="4_5wyu1"]
+[ext_resource type="PackedScene" uid="uid://do1b66uwfv7hl" path="res://Scenes/dialogue_manager.tscn" id="4_i3aeo"]
+[ext_resource type="Script" uid="uid://bytdj6i3vlkej" path="res://Scripts/Namebox.cs" id="5_35xla"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ys1qc"]
+
+[node name="Test" type="Node2D" node_paths=PackedStringArray("Testing")]
+script = ExtResource("1_e6ruj")
+Testing = NodePath("Character/DialogueManager")
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Forest" type="TextureRect" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fgwas")
+expand_mode = 1
+
+[node name="Character" type="CanvasLayer" parent="."]
+
+[node name="TestSpriteOptimus" parent="Character" node_paths=PackedStringArray("spritetesting") instance=ExtResource("3_i3aeo")]
+position = Vector2(-1534, 792)
+script = ExtResource("4_5wyu1")
+spritetesting = NodePath("../DialogueManager")
+
+[node name="DialogueManager" parent="Character" node_paths=PackedStringArray("NP", "Txt") instance=ExtResource("4_i3aeo")]
+NP = NodePath("DialogueUI/Namebox/Label2/NamePlate")
+Txt = NodePath("DialogueUI/DialogueBox/Label/Text")
+
+[node name="DialogueUI" parent="Character/DialogueManager" index="0"]
+visible = false
+
+[node name="Namebox" parent="Character/DialogueManager/DialogueUI" index="0"]
+script = ExtResource("5_35xla")
+
+[node name="Label" parent="Character/DialogueManager/DialogueUI/DialogueBox" index="0"]
+label_settings = SubResource("LabelSettings_ys1qc")
+
+[node name="Text" parent="Character/DialogueManager/DialogueUI/DialogueBox/Label" index="0"]
+bbcode_enabled = false
+horizontal_alignment = 3
+justification_flags = 160
+
+[node name="ProseUI" parent="Character/DialogueManager" index="1"]
+visible = false
+visibility_layer = 1
+
+[editable path="Character/DialogueManager"]
+[editable path="Character/DialogueManager/DialogueUI"]
+[editable path="Character/DialogueManager/ProseUI"]

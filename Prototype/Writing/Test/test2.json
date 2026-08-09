@@ -1,0 +1,30 @@
+{
+	"Start":{
+		
+			"Character" :"Optimus",
+			"Text" : ".....",
+			"ID": "1.1",
+			"Next" : "A"
+			
+		},
+	"A":{
+			"Character" :"Optimus",
+			"Text" : "I can't fucking believe it.",
+			"ID": "1.2",
+			"Next": "B"
+	},
+	"B":{
+			
+			"Character": "Optimus",
+			"Text": "...",
+			"ID": "1.3",
+			"Next": "C"
+	},
+	"C":{
+		
+			"Character": "Optimus",
+			"Text": "Am I just stupid?",
+			"ID": "1.4",
+			"End": "End"
+	}
+}

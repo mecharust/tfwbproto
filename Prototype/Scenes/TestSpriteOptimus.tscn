@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0yuy2fopgq53"]
+
+[ext_resource type="Texture2D" uid="uid://dajl12qtfvcb2" path="res://Images/Sprites/TestSprites/opTestSpriteHead.png" id="1_ys1ul"]
+[ext_resource type="Texture2D" uid="uid://dfhvvrgjl3do" path="res://Images/Sprites/TestSprites/opTestSpriteArmRightLow.png" id="2_7oa0o"]
+[ext_resource type="Texture2D" uid="uid://dr1jycgnplivx" path="res://Images/Sprites/TestSprites/opTestSpriteArmRightUp.png" id="3_kvldc"]
+[ext_resource type="Texture2D" uid="uid://bu58p0iu184m3" path="res://Images/Sprites/TestSprites/opTestSpriteBody.png" id="4_ewxs5"]
+[ext_resource type="Texture2D" uid="uid://bisq50idxctu0" path="res://Images/Sprites/TestSprites/opTestSpriteArmLeftUp.png" id="5_qjy1x"]
+[ext_resource type="Texture2D" uid="uid://rc4u87cqsj4x" path="res://Images/Sprites/TestSprites/opTestSpriteArmLeftLow.png" id="6_l4dev"]
+
+[node name="TestSpriteOptimus" type="Node2D"]
+
+[node name="OpTestSpriteHead" type="Sprite2D" parent="."]
+position = Vector2(545, -1257)
+texture = ExtResource("1_ys1ul")
+
+[node name="OpTestSpriteArmRightLow" type="Sprite2D" parent="."]
+position = Vector2(949, -299)
+texture = ExtResource("2_7oa0o")
+
+[node name="OpTestSpriteArmRightUp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1018, -450)
+texture = ExtResource("3_kvldc")
+
+[node name="OpTestSpriteBody" type="Sprite2D" parent="."]
+position = Vector2(503, 609)
+texture = ExtResource("4_ewxs5")
+
+[node name="OpTestSpriteArmLeftUp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-67, -456)
+texture = ExtResource("5_qjy1x")
+
+[node name="OpTestSpriteArmLeftLow" type="Sprite2D" parent="."]
+position = Vector2(-149, -302)
+texture = ExtResource("6_l4dev")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbef7s74dklut"]
+
+[ext_resource type="Script" path="res://Scripts/KeyboardController.cs" id="1_0tp7y"]
+
+[node name="KeyboardController" type="Node"]
+script = ExtResource("1_0tp7y")
