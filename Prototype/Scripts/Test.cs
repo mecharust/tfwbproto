@@ -21,6 +21,8 @@ public partial class Test : Node2D
     public DialogueManager Testing;
     public string callID;
 
+    
+
     // private const int Speed = 320;
     
     // Called when the node enters the scene tree for the first time.
@@ -31,9 +33,8 @@ public partial class Test : Node2D
         Text = GetNode<RichTextLabel>("Character/DialogueManager/DialogueUI/DialogueBox/Label/Text");
         TestingSprites = GetNode<TestSpriteOptimus>("Character/TestSpriteOptimus");
         
-        
         TimeTest();
-    
+        
         
         // TestingSprites.Call("OpSprites");
         
@@ -48,24 +49,42 @@ public partial class Test : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
     {
+        callingID();
+        SpriteControl();   
+    }
 
-        if(callID != null && TestSprite.Visible && callID.Contains("1.")) 
+    public void SpriteControl()
+    {
+        if(callID != null && TestSprite.Visible && callID.Contains("1."))
         {
-            
+
+
             TestingSprites.Call("OpSprites");
+            GD.Print("test");
             // GD.Print(callID);
         }
         else
         {
-        //    GD.Print("OFF");
+            GD.Print("OFF");
+            TestingSprites.Call("OpSprites");
+            GD.Print(callID);
+            
         }
-        
-       
-        
-        
+    }
+    public void callingID()
+    {
+        callID = Testing.CurrentBlock["ID"];
     }
 
-    async void TimeTest()
+    IDCheckerHandler SpriteCall = (string callID) =>
+    {
+       
+    };
+
+    public delegate void IDCheckerHandler (string callID);
+    public event IDCheckerHandler IDChecker;
+
+    public async void TimeTest()
     {
     
         await ToSignal(GetTree().CreateTimer(1.5), "timeout");
@@ -73,7 +92,11 @@ public partial class Test : Node2D
         
 
         DialogueUI.Visible = true;
+        
         Testing.Call("StartText");
+        
+        // callingID();
+
         
 
         if(callID.Contains("1."))
@@ -88,10 +111,7 @@ public partial class Test : Node2D
 
     }
 
-    public void callingID()
-    {
-        callID = Testing.CurrentBlock["ID"];
-    }
+ 
 
 
      public override void _UnhandledInput(InputEvent @event)
